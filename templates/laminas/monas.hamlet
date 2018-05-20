@@ -1,5 +1,5 @@
-<h1>#{laminaNumero lamina}
-<article>#{laminaTitulo lamina}
+<h1>#{laminaTitulo lamina}
+<article>_{MsgMonaNumber} #{laminaNumero lamina}
     <section .monas>
         <a .btn .btn-primary href=@{LaminaR}>_{MsgReturnToLaminas}
         <h1>_{MsgMonasHeading}
@@ -7,7 +7,13 @@
             <p>_{MsgNoMonas}
         $else
             $forall Entity _ (Mona _laminaId posted _user name text) <- monas
-                <div .comment>
+                <div>
                     <span .by>#{name}
                     <span .at>#{show posted}
                     <div .content>#{text}
+        <section>
+            <h1>_{MsgAddOfferHeading}
+                <form method=post enctype=#{enctype}>
+                    ^{monaWidget}
+                    <div>
+                        <input type=submit .btn .primary value=_{MsgAddOfferButton}>

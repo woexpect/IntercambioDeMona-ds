@@ -27,7 +27,7 @@ monaForm laminaId = renderBootstrap3 BootstrapBasicForm $ Mona
 -----------------------------------------------------------------
 getLaminaR :: Handler Html
 getLaminaR = do
-    laminas <- runDB $ selectList [] [Desc LaminaNumero]
+    laminas <- runDB $ selectList [] [Asc LaminaId]
     (laminaWidget, enctype) <- generateFormPost laminaForm
     defaultLayout $ do 
         setTitleI MsgLaminas
@@ -43,3 +43,15 @@ getMonaR laminaId = do
     defaultLayout $ do
         setTitleI $ MsgLaminaTitle $ laminaNumero lamina
         $(widgetFile "laminas/monas")
+
+postMonaR :: LaminaId -> Handler Html
+postMonaR laminaId = do
+    ((res, monaWidget), enctype) <- runFormPost (monaForm laminaId)
+    case res of
+        FormSuccess lamina -> do
+            _ <- runDB $ insert lamina
+            setMessageI $ MsgOfertaCreada $ monaName lamina
+            redirect $ MonaR laminaId
+        _ -> defaultLayout $ do
+            setMessageI $ MsgPleaseCorrectOffer
+            $(widgetFile "laminas/monasForm")
