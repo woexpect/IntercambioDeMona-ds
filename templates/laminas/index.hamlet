@@ -1,6 +1,7 @@
 $if null laminas
     <h1> _{MsgNoLaminas}
 $else
+    <h1>_{MsgTituloInicio}
     <table>
         <thead>
             <tr .row100 .head>

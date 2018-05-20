@@ -20,3 +20,4 @@ AddOfferHeading: ¿Tienes esta lámina repetida? Agrega una oferta ahora!
 AddOfferButton: Agregar
 NewOffer: Agregar
 PleaseCorrectOffer: Por favor, corrige los errores de la petición.
+TituloInicio: Bienvenido, acá puedes ver todas las laminas y cambiarlas.
