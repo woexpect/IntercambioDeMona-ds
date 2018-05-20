@@ -1,0 +1,7 @@
+$if null laminas
+    <h1> _{MsgNoLaminas}
+$else
+    <ul>
+        $forall Entity laminaId lamina <- laminas
+            <li>
+                <a href=@{MonaR laminaId}>#{laminaNumero lamina}

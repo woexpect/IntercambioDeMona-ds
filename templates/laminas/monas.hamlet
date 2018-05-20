@@ -1,0 +1,13 @@
+<h1>#{laminaNumero lamina}
+<article>#{laminaTitulo lamina}
+    <section .monas>
+        <a .btn .btn-primary href=@{LaminaR}>_{MsgReturnToLaminas}
+        <h1>_{MsgMonasHeading}
+        $if null monas
+            <p>_{MsgNoMonas}
+        $else
+            $forall Entity _ (Mona _laminaId posted _user name text) <- monas
+                <div .comment>
+                    <span .by>#{name}
+                    <span .at>#{show posted}
+                    <div .content>#{text}

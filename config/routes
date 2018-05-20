@@ -13,5 +13,5 @@
 
 /profile ProfileR GET
 
-/lamina LaminaR GET POST
-/lamina/#MonaId MonaR GET POST
+/lamina LaminaR GET
+/lamina/#LaminaId MonaR GET

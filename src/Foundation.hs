@@ -25,6 +25,7 @@ import Yesod.Core.Types     (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Text.Encoding as TE
+import Yesod.Form.Nic (YesodNic)
 
 -- | The foundation datatype for your application. This can be a good place to
 -- keep settings and values requiring initialization before your application
@@ -68,6 +69,10 @@ type Form x = Html -> MForm (HandlerFor App) (FormResult x, Widget)
 -- | A convenient synonym for database access functions.
 type DB a = forall (m :: * -> *).
     (MonadIO m) => ReaderT SqlBackend m a
+
+instance YesodNic App
+
+mkMessage "App" "messages" "es"
 
 -- Please see the documentation for the Yesod typeclass. There are a number
 -- of settings which can be configured by overriding methods here.
@@ -166,6 +171,8 @@ instance Yesod App where
     isAuthorized FaviconR _ = return Authorized
     isAuthorized RobotsR _ = return Authorized
     isAuthorized (StaticR _) _ = return Authorized
+    isAuthorized LaminaR _ = return Authorized
+    isAuthorized (MonaR _) _ = return Authorized
 
     -- the profile route requires that the user is authenticated, so we
     -- delegate to that function
