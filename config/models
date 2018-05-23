@@ -27,3 +27,5 @@ Mona
     user UserId
     name Text
     text Textarea 
+    latitud Text
+    longitud Text

@@ -21,3 +21,5 @@ AddOfferButton: Agregar
 NewOffer: Agregar
 PleaseCorrectOffer: Por favor, corrige los errores de la petición.
 TituloInicio: Bienvenido, acá puedes ver todas las laminas y cambiarlas.
+Latitud: Latidud de ubicación preferida para el cambio 
+Longitud: Longitud de ubicación preferida para el cambio 

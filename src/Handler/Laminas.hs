@@ -23,6 +23,8 @@ monaForm laminaId = renderBootstrap3 BootstrapBasicForm $ Mona
             <*> lift requireAuthId
             <*> areq textField (bfs MsgOffertTitle) Nothing
             <*> areq textareaField (bfs MsgInformationtext) Nothing
+            <*> areq textField (bfs MsgLatitud) Nothing
+            <*> areq textField (bfs MsgLongitud) Nothing
 -----------------------------------------------------------------
 -----------------------------------------------------------------
 getLaminaR :: Handler Html

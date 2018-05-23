@@ -6,11 +6,14 @@
         $if null monas
             <p>_{MsgNoMonas}
         $else
-            $forall Entity _ (Mona _laminaId posted _user name text) <- monas
+            $forall Entity _ (Mona _laminaId posted _user name text latitud longitud) <- monas
+                <br>
                 <div>
                     <span .by>#{name}
                     <span .at>#{show posted}
                     <div .content>#{text}
+                    <div .content>_{MsgLatitud} #{latitud}
+                    <div .content>_{MsgLongitud} #{longitud}
         <section>
             <h1>_{MsgAddOfferHeading}
                 <form method=post enctype=#{enctype}>
